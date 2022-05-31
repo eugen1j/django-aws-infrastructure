@@ -12,7 +12,12 @@
       }
     ],
     "command": ${jsonencode(command)},
-    "environment": [],
+    "environment": [
+      {
+        "name": "DATABASE_URL",
+        "value": "postgresql://${rds_username}:${rds_password}@${rds_hostname}:5432/${rds_db_name}"
+      }
+    ],
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {

@@ -66,23 +66,3 @@ resource "aws_security_group" "prod_lb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-resource "aws_security_group" "prod_ingress_lb" {
-  name        = "prod-ingress-lb"
-  description = "Allows inbound access from the prod load balancer only"
-  vpc_id      = aws_vpc.prod.id
-
-  ingress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    security_groups = [aws_security_group.prod_lb.id]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
