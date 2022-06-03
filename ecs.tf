@@ -14,6 +14,9 @@ locals {
     rds_username = var.prod_rds_username
     rds_password = var.prod_rds_password
     rds_hostname = aws_db_instance.prod.address
+
+    domain = var.prod_backend_domain
+    secret_key = var.prod_backend_secret_key
   }
 }
 
