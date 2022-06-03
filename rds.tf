@@ -25,8 +25,8 @@ resource "aws_db_instance" "prod" {
 
 # RDS Security Group (traffic ECS -> RDS)
 resource "aws_security_group" "rds_prod" {
-  name        = "rds-prod"
-  vpc_id      = aws_vpc.prod.id
+  name   = "rds-prod"
+  vpc_id = aws_vpc.prod.id
 
   ingress {
     protocol        = "tcp"
